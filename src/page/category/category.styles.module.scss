@@ -1,0 +1,10 @@
+.category {
+  background: var(--white);
+  .grid {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

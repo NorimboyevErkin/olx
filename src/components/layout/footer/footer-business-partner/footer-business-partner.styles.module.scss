@@ -1,0 +1,26 @@
+.FooterBusinessPartner {
+  width: 100%;
+  background: var(--green);
+  padding: 16px;
+  .FooterBusinessPartnerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+    color: var(--white);
+    strong {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      gap: 16px;
+
+      strong {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+}

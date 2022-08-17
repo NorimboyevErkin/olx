@@ -1,0 +1,12 @@
+.ContainerBox {
+  width: 1238px;
+  height: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1340px) {
+    width: 90%;
+  }
+  @media (max-width: 500px) {
+    width: 94%;
+  }
+}

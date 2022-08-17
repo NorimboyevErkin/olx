@@ -1,0 +1,17 @@
+.product {
+  .grid {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    .left {
+      flex: 3;
+      width: 100%;
+    }
+    .right {
+      flex: 1;
+    }
+  }
+}

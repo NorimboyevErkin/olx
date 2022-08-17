@@ -1,0 +1,36 @@
+.my-tabs {
+  width: 100%;
+  .ant-tabs-nav-wrap {
+    border-bottom: 1px solid var(--green-text);
+    .ant-tabs-tab {
+      padding: 16px 24px !important;
+      @media (max-width: 767px) {
+        padding: 8px 16px !important;
+      }
+      color: var(--green-text);
+      margin-left: 0 !important;
+      white-space: nowrap;
+
+      &:hover {
+        background: var(--green);
+        color: var(--white);
+      }
+    }
+
+    .ant-tabs-tab-active {
+      // border-bottom: 3px solid var(--green-text);
+      .ant-tabs-tab-btn {
+        color: var(--green-text) !important;
+      }
+      &:hover {
+        background: transparent;
+        color: var(--green-text);
+      }
+    }
+
+    .ant-tabs-ink-bar {
+      height: 2px !important;
+      background: var(--green-text);
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.pegination-box {
+  padding: 32px 16px 0;
+  .ant-pagination {
+    display: flex;
+    justify-content: center;
+
+    .ant-pagination-item-link {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      color: var(--green-text);
+      &:hover {
+        color: var(--green-text);
+      }
+    }
+    .ant-pagination-item {
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: 5px solid transparent;
+      border-radius: 50%;
+      color: var(--green-text);
+      &:hover {
+        border: 5px solid var(--green-text);
+      }
+    }
+    .ant-pagination-item-active {
+      border: 2px solid var(--green-text);
+    }
+    .ant-pagination-disabled {
+      opacity: 0;
+    }
+  }
+}

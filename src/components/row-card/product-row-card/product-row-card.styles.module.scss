@@ -1,0 +1,65 @@
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 16px;
+}
+
+.card {
+  width: 100%;
+  height: 168px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: var(--white);
+  transition: box-shadow 0.3s ease;
+
+  .img {
+    width: auto;
+    height: 100%;
+    img {
+      object-fit: cover;
+      width: 216px;
+      height: 100%;
+    }
+  }
+
+  .info {
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      span {
+        @include text-ellipsis();
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      span {
+        @include text-ellipsis();
+        font-size: 13px;
+        color: var(--green-text);
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  }
+}

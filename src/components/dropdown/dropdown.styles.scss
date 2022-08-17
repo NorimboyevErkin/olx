@@ -1,0 +1,43 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.menu-container-box {
+  width: 100%;
+  min-width: 200px;
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--green-text);
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  overflow: hidden;
+  .menu-container-box-items {
+    padding: 8px 14px;
+    @include flex-center();
+    &:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+  }
+  .menu-container-box-items-title {
+    padding: 14px;
+    @include flex-center();
+  }
+}
+
+.drop-down-btn-box {
+  button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+  }
+}

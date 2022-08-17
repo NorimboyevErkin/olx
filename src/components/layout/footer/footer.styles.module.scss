@@ -1,0 +1,40 @@
+.Footer {
+  padding: 35px 0;
+  .FooterBox {
+    width: 100%;
+    min-height: 395px;
+    padding-top: 45px;
+    border-top: 1px solid #7f9799;
+
+    .FooterBottom {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .FooterBottomBox {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 16px;
+        ul {
+          min-width: 300px;
+          li {
+            position: relative;
+            margin: 3px 0;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 4px 0;
+          }
+        }
+      }
+      .FooterApps {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        column-gap: 16px;
+      }
+    }
+  }
+}

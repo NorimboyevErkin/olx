@@ -1,0 +1,70 @@
+.my-select {
+  position: relative;
+  .ant-select {
+    padding-right: 18px;
+    background: #fff;
+    margin-right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    color: var(--green) !important;
+    @media (max-width: 767px) {
+      height: 36px;
+      line-height: 36px;
+    }
+
+    .ant-select-selector {
+      border: none !important;
+      box-shadow: none !important;
+
+      .ant-select-selection-placeholder {
+        padding: 0 14px;
+        color: var(--green) !important;
+      }
+    }
+
+    .ant-select-arrow {
+      display: none !important;
+    }
+  }
+  .arrow-icon {
+    pointer-events: none;
+    position: absolute;
+    right: 11px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 11px;
+    font-size: 24px;
+  }
+  .ant-select-clear {
+    display: none;
+  }
+}
+.option {
+  all: unset;
+  padding: 8px 14px !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  @media (max-width: 767px) {
+    padding: 4px 8px !important;
+  }
+}
+.ant-select-item {
+  &:hover {
+    background: var(--green) !important;
+    color: #ffff !important;
+  }
+}
+.ant-select-item-option-selected {
+  background: var(--green) !important;
+  color: #ffff !important;
+}

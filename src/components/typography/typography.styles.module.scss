@@ -1,0 +1,37 @@
+@mixin text-line {
+  display: -webkit-inline-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: start;
+}
+.titleLink {
+  max-width: 100%;
+  display: inline-flex;
+  span {
+    @include text-line();
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    & {
+      cursor: pointer;
+    }
+
+    transition: background 0.3s ease;
+    &:hover {
+      background: var(--black-text-color);
+      color: var(--white) !important;
+    }
+  }
+}
+.title {
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  span {
+    @include text-line();
+  }
+}

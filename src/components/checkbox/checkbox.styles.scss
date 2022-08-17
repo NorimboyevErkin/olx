@@ -1,0 +1,35 @@
+.my-checkbox {
+  color: var(--green-text);
+  .checkbox-box {
+    height: 24px;
+    width: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--green-text);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: transparent;
+    font-size: 24px;
+  }
+  .checkbox-grid {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 16px;
+    font-size: 18px;
+
+    input[type="checkbox"] {
+      display: none;
+    }
+    span {
+      font-size: 14px;
+      color: #7f9799;
+    }
+  }
+  .checkbox-checked {
+    color: var(--white);
+    border: 0px solid var(--green-text);
+    background: var(--green);
+  }
+}

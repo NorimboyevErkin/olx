@@ -1,0 +1,10 @@
+.my-breadcrumb {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 24px;
+.ant-breadcrumb-separator{
+    margin: 0 8px !important;
+}
+}

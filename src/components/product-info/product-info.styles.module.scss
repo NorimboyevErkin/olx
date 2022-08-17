@@ -1,0 +1,28 @@
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  // overflow: hidden;
+  gap: 16px;
+  .top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tags {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    column-gap: 8px;
+  }
+  p {
+    color: var(--muted-green-color);
+    line-height: 22px;
+    font-size: 16px;
+  }
+}

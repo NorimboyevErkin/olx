@@ -1,0 +1,49 @@
+@mixin primary-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  padding: 13px 22px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.PrimaryBtn {
+  @include primary-btn();
+  background: var(--white);
+  color: var(--green-text) !important;
+  box-shadow: inset 0 0 0 8px var(--white);
+  &:hover {
+    background: var(--green-text);
+    color: var(--white) !important;
+    box-shadow: inset 0 0 0 5px var(--white);
+  }
+}
+.PrimaryOutlineBtn {
+  @include primary-btn();
+  background: var(--green);
+  color: var(--white) !important;
+  box-shadow: inset 0 0 0 8px var(--green);
+  &:hover {
+    background: var(--white);
+    color: var(--green-text) !important;
+    box-shadow: inset 0 0 0 5px var(--green);
+  }
+}
+.LinkBtn {
+  all: unset;
+  display: inline-flex;
+  align-items: center !important;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--white) !important;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    color: #7f9799 !important;
+  }
+}

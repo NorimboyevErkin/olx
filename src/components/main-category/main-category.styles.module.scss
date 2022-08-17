@@ -1,0 +1,33 @@
+.card {
+  max-width: 137px;
+  padding: 0 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+
+  .img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 29px;
+  }
+
+
+  .title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--black-text-color);
+    transition: background 0.3s ease;
+  }
+  &:hover {
+    .title {
+      background: var(--black-text-color);
+      color: var(--white);
+    }
+  }
+}

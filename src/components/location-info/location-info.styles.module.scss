@@ -1,0 +1,24 @@
+.location {
+  cursor: pointer;
+  .grid {
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: 16px;
+    .info {
+      flex: 2;
+      display: flex;
+      column-gap: 16px;
+      .text {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+    .map {
+      flex: 1;
+    }
+  }
+}

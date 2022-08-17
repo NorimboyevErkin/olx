@@ -1,0 +1,79 @@
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  color: var(--muted-green-color);
+}
+.product {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 8px;
+  h2 {
+    color: var(--green-text);
+  }
+
+  .filter {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    .mutedText {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted-green-color);
+    }
+    .action {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      @media (max-width: 767px) {
+        flex-wrap: wrap;
+      }
+      .cardAction {
+        margin-left: 8px;
+        @include flex-start();
+      }
+      .priceAction {
+        margin-right: 8px;
+        @include flex-start();
+        .price {
+          color: var(--green-text);
+          font-weight: 600;
+          cursor: pointer;
+          &:hover {
+            background: var(--green);
+            color: var(--white);
+            @media (max-width: 767px) {
+              background: transparent;
+              color: inherit;
+            }
+          }
+        }
+        .activePrice {
+          color: var(--muted-green-color);
+          text-decoration: underline;
+        }
+      }
+
+      button {
+        all: unset;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--green-text);
+      }
+      .activeBtn {
+        color: var(--muted-green-color);
+      }
+    }
+  }
+}
