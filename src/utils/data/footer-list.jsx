@@ -60,6 +60,6 @@ const infoList = [
   },
 ];
 
-const footerList = [[...servicesList], [...infoList]];
+const footerList = [servicesList, infoList];
 
 export default footerList;

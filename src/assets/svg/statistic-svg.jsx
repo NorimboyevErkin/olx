@@ -1,4 +1,4 @@
-function StatisticSvg({ width = "110", height = "110" }) {
+function StatisticSvg({ width = "130", height = "130" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

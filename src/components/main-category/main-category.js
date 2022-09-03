@@ -28,7 +28,7 @@ function MainCategory({ data, isMobile, ...others }) {
           style={{ background: color }}
         />
         {isMobile ? (
-          <Typography size="12px" weight={600} line={1}>
+          <Typography size="12px" weight={400} line={1}>
             {title}
           </Typography>
         ) : (

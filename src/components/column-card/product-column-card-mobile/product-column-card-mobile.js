@@ -3,15 +3,15 @@ import styles from "./product-column-card-mobile.styles.module.scss";
 import { useNavigate } from "react-router-dom";
 import Like from "../../like/like";
 function ProductColumnCardMobile({ data }) {
-  const { img, title, location, price, atTime } = data;
+  const { img, title, location, price, atTime, valute } = data;
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/advertising/${title}`);
   };
   return (
-    <div className={styles.card} onClick={handleClick}>
-      <div className={styles.header}>
-        <img src={img} alt={title} />
+    <div className={styles.card}>
+      <div className={styles.header} onClick={handleClick}>
+        {img.length > 0 ? <img src={img} alt={title} /> : null}
       </div>
       <div className={styles.footer}>
         <div className={styles.top}>
@@ -20,6 +20,7 @@ function ProductColumnCardMobile({ data }) {
               type="title"
               size="14px"
               style={{ marginBottom: "5px" }}
+              onClick={handleClick}
             >
               {title}
             </Typography>
@@ -33,7 +34,7 @@ function ProductColumnCardMobile({ data }) {
             line={1}
             style={{ marginTop: "5px" }}
           >
-            {price}
+            {price} {valute}
           </Typography>
         </div>
         <div className={styles.bottom}>

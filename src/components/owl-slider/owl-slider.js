@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 import "./owl-slider.styles.scss";
-import { Pagination } from "swiper";
+import { Pagination, Scrollbar, Navigation } from "swiper";
 
 const bp = {
   0: {
@@ -24,25 +25,20 @@ const bp = {
   },
   1320: {
     slidesPerView: 5,
-    spaceBetween: 25,
+    spaceBetween: 20,
   },
 };
 
-function OwlSlider({ breakpoints = bp, pagination = false, children }) {
+function OwlSlider({ breakpoints = bp, children }) {
   return (
     <div className="owl-slider-box">
       <Swiper
         slidesPerView={1}
         spaceBetween={3}
+        scrollbar={true}
+        navigation={true}
         breakpoints={breakpoints}
-        modules={[Pagination]}
-        pagination={
-          pagination
-            ? {
-                clickable: true,
-              }
-            : pagination
-        }
+        modules={[Pagination, Scrollbar, Navigation]}
         className="mySwiper"
       >
         {children.map((item, index) => (

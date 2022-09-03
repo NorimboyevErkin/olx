@@ -1,6 +1,10 @@
 .like {
   all: unset;
-  color: var(--green-text);
+  color: var(--muted-color);
   cursor: pointer;
-  
+  transition: color 0.3s ease;
+  margin: 0 5px;
+  &:hover {
+    color: var(--green-text);
+  }
 }

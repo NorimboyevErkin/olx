@@ -21,47 +21,12 @@
       align-items: flex-start;
       gap: 16px;
     }
-    .user {
-      @include between();
-      column-gap: 16px;
-    }
+
     .number {
       @include between();
     }
   }
   .form {
     @include column();
-
-    textarea {
-      background-clip: padding-box;
-      background: var(--body-color);
-      border: 2px solid var(--body-color);
-      border-radius: 4px;
-      color: var(--green-text);
-      font-size: 16px;
-      line-height: 20px;
-      outline: 0px;
-      resize: none;
-      padding: 16px;
-      width: 100%;
-      min-height: 192px;
-    }
-    button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0px 0px 0px auto;
-      min-height: 40px;
-      position: relative;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 18px;
-      background: var(--green);
-      border: 5px solid var(--green);
-      border-radius: 4px;
-      color: var(--body-color);
-      padding: 10px 30px;
-      cursor: pointer;
-    }
   }
 }

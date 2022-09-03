@@ -25,6 +25,50 @@
     gap: 16px;
     margin-bottom: 32px;
 
+    .sort {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 16px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+      @media (max-width: 767px) {
+        gap: 8px;
+      }
+      .sortByStatus {
+        flex: 1;
+        width: 100%;
+        max-width: 150px;
+      }
+      .sortByPrice {
+        flex: 3;
+        .price {
+          width: 100%;
+          display: flex;
+          column-gap: 8px;
+          @media (max-width: 767px) {
+            column-gap: 4px;
+          }
+
+          input[type="text"] {
+            all: unset;
+            width: 100%;
+            max-width: 120px;
+            height: 48px;
+            line-height: 48px;
+            background: var(--white);
+            border-radius: 4px;
+            color: var(--green-text);
+            font-size: 16px;
+            line-height: 20px;
+            outline: none;
+            resize: none;
+            padding: 0 12px;
+          }
+        }
+      }
+    }
     .mutedText {
       font-size: 12px;
       font-weight: 400;

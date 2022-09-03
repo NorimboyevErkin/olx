@@ -1,7 +1,10 @@
 .FooterBusinessPartner {
   width: 100%;
   background: var(--green);
-  padding: 16px;
+  padding: 0 16px;
+  @media (max-width: 767px) {
+    padding: 16px;
+  }
   .FooterBusinessPartnerBox {
     display: flex;
     justify-content: center;
@@ -13,7 +16,7 @@
       font-weight: 500;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 767px) {
       flex-direction: column;
       gap: 16px;
 

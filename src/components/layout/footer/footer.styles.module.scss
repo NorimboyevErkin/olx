@@ -1,5 +1,5 @@
 .Footer {
-  padding: 35px 0;
+  padding-bottom: 35px;
   .FooterBox {
     width: 100%;
     min-height: 395px;
@@ -25,6 +25,31 @@
             font-size: 16px;
             font-weight: 500;
             padding: 4px 0;
+          }
+        }
+      }
+
+      .Partners {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 24px 0;
+        padding: 0;
+        font-size: 11px;
+        column-gap: 24px;
+        li {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          column-gap: 8px;
+          img {
+            width: 16px;
+            height: 11px;
+            filter: grayscale(100%);
+          }
+          &:hover {
+            img {
+              filter: grayscale(0%);
+            }
           }
         }
       }

@@ -1,12 +1,16 @@
-import { Dropdown, Space } from "antd";
+import { Dropdown } from "antd";
 import "./dropdown.styles.scss";
 
 function makeMenu(menu) {
   return (
     <ul className="menu-container-box">
       {menu.map((item, index) => {
-        const { label, title, icon } = item;
-
+        const { label, title, icon, type } = item;
+        if (type === "divider") {
+          return (
+            <li key={index} className="ant-dropdown-menu-item-divider"></li>
+          );
+        }
         return (
           <li
             key={index}
@@ -25,7 +29,7 @@ function makeMenu(menu) {
   );
 }
 
-function MyDropdown({ menu, children, placement = "bottomRight" }) {
+function MyDropdown({ menu, children, placement = "bottom" }) {
   const newMenu = makeMenu(menu);
   return (
     <Dropdown overlay={newMenu} placement={placement}>

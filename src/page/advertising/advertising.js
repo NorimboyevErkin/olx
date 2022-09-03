@@ -11,10 +11,15 @@ import ProductInfo from "../../components/product-info/product-info";
 import Search from "../../components/search";
 import MySlider from "../../components/slider/slider";
 import Typography from "../../components/typography/typography";
+import { useMediaQuery } from "react-responsive";
 import styles from "./advertising.styles.module.scss";
 
 function Advertising() {
   const [dataProduct, setdataProduct] = useState([]);
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
+
   const getdata = async (name, setData) => {
     await fetch(`https://olx-fake-api.herokuapp.com/${name}`)
       .then((res) => res.json())
@@ -22,16 +27,25 @@ function Advertising() {
   };
   useEffect(() => {
     getdata("products", setdataProduct);
+    return () => {
+      window.scrollTo(0, 0);
+    };
   }, []);
+
   return (
     <div className={styles.product}>
+      {isMobile ? <MySlider /> : null}
       <Container>
-        <Search />
-        <MyBreadcrumb />
+        {isMobile ? null : (
+          <>
+            <Search />
+            <MyBreadcrumb />
+          </>
+        )}
         <br />
         <div className={styles.grid}>
           <div className={styles.left}>
-            <MySlider />
+            {isMobile ? null : <MySlider />}
             <ProductInfo />
             <ChatForm />
           </div>
@@ -41,7 +55,7 @@ function Advertising() {
           </div>
         </div>
         <br />
-        <Typography type="title" size="24px" weight={500}>
+        <Typography type="title" size="22px" weight={600}>
           O'xshash e'lonlar
         </Typography>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
@@ -52,11 +66,18 @@ function Advertising() {
           </OwlSlider>
         </div>
         <br />
-        <Typography type="title" size="24px" weight={500}>
+        <Typography type="title" size="22px" weight={600}>
           O'xshash e'lonlar
         </Typography>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" ,marginBottom:"50px"}}>
-          <OwlSlider pagination={true}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "24px",
+            marginBottom: "50px",
+          }}
+        >
+          <OwlSlider>
             {dataProduct.map((item, index) => (
               <ProductColumnCardMobile data={item} key={index} />
             ))}

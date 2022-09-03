@@ -1,0 +1,29 @@
+.translationNav {
+  color: var(--muted-green-color);
+  button {
+    all: unset;
+    padding: 10px;
+    font-size: 13px;
+    color: var(--muted-green-color);
+  }
+  .activeTranslationBtn {
+    color: var(--white);
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 767px) {
+      color: var(--green-text);
+      font-weight: 600;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .label {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted-green-color-2);
+  }
+}

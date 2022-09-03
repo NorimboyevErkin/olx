@@ -11,7 +11,7 @@ function AboutInfo() {
       <br />
       <Typography
         type="title"
-        size="13px"
+        size="14px"
         line={10}
         weight={400}
         color="var(--muted-green-color)"

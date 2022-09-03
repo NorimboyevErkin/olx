@@ -3,7 +3,11 @@ import Like from "../like/like";
 import MyTag from "../tag/tag";
 import Typography from "../typography/typography";
 import styles from "./product-info.styles.module.scss";
+import { useMediaQuery } from "react-responsive";
 function ProductInfo() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
   return (
     <CardBox>
       <div className={styles.box}>
@@ -13,12 +17,13 @@ function ProductInfo() {
           </Typography>
           <Like />
         </div>
-        <Typography type="title" size="32px" >
+        <Typography type="title" size={isMobile ? "24px" : "32px"}>
           Искусственный камень, столешницы,ванны подоконники,лестницы
         </Typography>
         <div className={styles.tags}>
           <MyTag>Biznes</MyTag>
           <MyTag>Holati: Yangi</MyTag>
+          <MyTag>HP</MyTag>
         </div>
         <Typography type="title" size="20px" weight={700}>
           TAVSIF

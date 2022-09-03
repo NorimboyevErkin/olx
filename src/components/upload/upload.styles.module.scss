@@ -1,0 +1,51 @@
+@mixin absolute {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.uploadBox {
+  border-radius: 4px;
+  width: 100%;
+  height: 120px;
+  padding: 0px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .viewImg {
+      display: flex;
+    }
+  }
+  input[type="file"] {
+    @include absolute();
+    opacity: 0;
+  }
+  .viewImg {
+    @include absolute();
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+    z-index: 3;
+    transition: display 0.5s ease;
+  }
+  .img {
+    @include absolute();
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  h3 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}

@@ -21,8 +21,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      column-gap: 36px;
+      column-gap: 40px;
       font-size: 18px;
+      color: var(--white);
+
+      .translate-action {
+        color: var(--muted-green-color);
+        button {
+          all: unset;
+          padding: 10px;
+          font-size: 13px;
+          color: var(--muted-green-color);
+        }
+        .active-translate-btn {
+          color: var(--white);
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
     }
   }
 }

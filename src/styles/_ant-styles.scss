@@ -1,0 +1,163 @@
+// popover styles
+.ant-popover {
+  padding: 0;
+  position: absolute;
+  width: 85% !important;
+  margin: 0 auto;
+  left: 0 !important;
+  right: 0 !important;
+
+  @media (max-width: 767px) {
+    width: 95% !important;
+  }
+}
+.ant-popover-inner-content {
+  padding: 0 !important;
+}
+.ant-popover-arrow {
+  display: none !important;
+}
+.ant-message {
+  top: 80px !important;
+  @media (max-width: 767px) {
+    top: 10px !important;
+  }
+  .ant-message-notice {
+    .ant-message-notice-content {
+      background: var(--green);
+      color: var(--white);
+      border-radius: 4px;
+      .ant-message-custom-content {
+        .anticon {
+          margin-right: 16px !important;
+        }
+      }
+    }
+  }
+}
+
+// tooltip styles
+
+.ant-tooltip-arrow {
+  display: none;
+}
+.ant-tooltip-inner {
+  background: var(--green);
+}
+// upload styles
+.ant-upload-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  @media (max-width: 650px) {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  &::before {
+    display: none;
+  }
+  .ant-upload-list-picture-card-container,
+  .ant-upload {
+    width: 100%;
+    min-height: 120px;
+    .ant-upload-list-item-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+    }
+
+    .ant-upload-span {
+      img {
+        object-fit: cover !important;
+      }
+    }
+  }
+}
+
+// switch styles
+
+.ant-switch {
+  background: rgb(216, 223, 224);
+
+  .ant-switch-handle {
+    &::before {
+      box-shadow: none;
+      background: transparent;
+      border: 3px solid rgb(0, 47, 52);
+    }
+  }
+}
+.ant-switch-checked {
+  background: var(--green);
+  .ant-switch-handle {
+    &::before {
+      box-shadow: none;
+      background: transparent;
+      border: 5px solid rgb(255, 255, 255);
+    }
+  }
+}
+.ant-click-animating-node {
+  display: none !important;
+}
+
+// tabs styles
+.ant-tabs-tab-btn {
+  &:focus {
+    color: inherit;
+  }
+}
+
+// radio style
+.ant-radio-group {
+  display: flex;
+  column-gap: 8px;
+  .ant-radio-button-wrapper {
+    width: 100%;
+    background: var(--body-color);
+    border: none;
+    padding: 6px 16px;
+    display: flex;
+    justify-content: center;
+    line-height: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      color: inherit !important;
+    }
+  }
+  .ant-radio-button-wrapper-checked,
+  .ant-radio-button-checked {
+    border: none;
+    background: var(--syan-color);
+    color: var(--green-text) !important;
+  }
+  .ant-radio-button {
+    .ant-radio-button-inner {
+      display: none;
+    }
+  }
+}
+// modal
+.ant-modal-body {
+  padding: 0;
+}
+.ant-modal {
+  @media (max-width: 767px) {
+    width: 100% !important;
+  }
+}
+
+// notification
+.ant-notification-notice {
+  background: var(--blue-color);
+  color: var(--white);
+
+  .anticon.ant-notification-notice-icon-info,
+  .ant-notification-notice-message {
+    color: var(--white);
+  }
+}

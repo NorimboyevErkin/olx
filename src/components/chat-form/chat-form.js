@@ -4,6 +4,9 @@ import styles from "./chat-form.styles.module.scss";
 import Typography from "../typography/typography";
 import PhoneSvg from "../../assets/svg/phone-svg";
 import { message } from "antd";
+import MyInput from "../input/input";
+import MyButton from "../button/button";
+import UserInfo from "../user-info/user-info";
 
 const key = "updatable";
 
@@ -19,23 +22,7 @@ function ChatForm() {
     <CardBox>
       <div className={styles.box}>
         <div className={styles.top}>
-          <div className={styles.user}>
-            <Avatar src="https://joeschmoe.io/api/v1/random" />
-            <span>
-              <Typography type="text" size="20px" weight={400}>
-                Stone
-              </Typography>
-              <br />
-              <Typography
-                type="text"
-                size="14px"
-                weight={400}
-                color="var(--muted-green-color)"
-              >
-                So'nggi faollik 2022 M08 05
-              </Typography>
-            </span>
-          </div>
+          <UserInfo name="Stone" lastTime="So'nggi faollik 2022 M08 05" />
           <div className={styles.number}>
             <PhoneSvg />
             <Typography type="text" line={1} size="24px" weight={700}>
@@ -44,18 +31,26 @@ function ChatForm() {
           </div>
         </div>
         <form className={styles.form}>
-          <textarea
+          <MyInput
+            type="textarea"
             cols="30"
             rows="10"
             placeholder="Xabaringizni yozing..."
-          ></textarea>
-          <button onClick={(e) => {
-            e.preventDefault();
-            message.success("This is a success message");
-            // openMessage();
-          }}>
+          />
+          <MyButton
+            type="primary-outline"
+            onClick={(e) => {
+              e.preventDefault();
+              message.success("This is a success message");
+              // openMessage();
+            }}
+            style={{
+              margin: "0px 0px 0px auto",
+              padding: "10px 30px",
+            }}
+          >
             Yuborish
-          </button>
+          </MyButton>
         </form>
       </div>
     </CardBox>

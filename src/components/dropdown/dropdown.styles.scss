@@ -18,6 +18,7 @@
   align-items: stretch;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
   .menu-container-box-items {
     padding: 8px 14px;
     @include flex-center();
@@ -33,6 +34,8 @@
 }
 
 .drop-down-btn-box {
+  display: flex;
+  align-items: center;
   button {
     all: unset;
     display: flex;

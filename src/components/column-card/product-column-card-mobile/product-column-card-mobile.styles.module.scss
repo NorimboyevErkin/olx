@@ -1,5 +1,4 @@
 .card {
-  // min-width: 220px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -8,15 +7,37 @@
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
-  @media (max-width:500px) {
+  @media (max-width: 500px) {
     min-width: 100%;
   }
 
   .header {
-    width: 100%;
     position: relative;
+    background: var(--body-color);
+    min-height: 170px;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 200px;
+      height: 200px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      border: 60px solid #d8dfe0;
+    }
+
     img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
@@ -40,7 +61,7 @@
       .title {
         width: 100%;
         display: flex;
-        justify-content:space-between;
+        justify-content: space-between;
         align-items: flex-start;
         margin: 0 !important;
       }

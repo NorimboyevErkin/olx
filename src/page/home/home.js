@@ -20,7 +20,11 @@ import NotAway from "../not-away";
 import Loader from "../../components/loader/loader";
 import ColumnCard from "../../components/column-card";
 import Search from "../../components/search";
+import MyInput from "../../components/input/input";
+import { useTranslation } from "react-i18next";
+import TranslationNav from "../../components/translation/translation";
 function Home() {
+  const { t } = useTranslation();
   const category = useSelector((state) => state.category.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,6 +38,11 @@ function Home() {
     (data) => console.log("OK"),
     (error) => console.log(error)
   );
+  useEffect(() => {
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
 
   const breakpoints = {
     0: {
@@ -60,15 +69,19 @@ function Home() {
   return (
     <>
       <div className={styles.home}>
-        <TopBarBanner />
+        <TopBarBanner
+          title="Qaysi pullik xizmatlar OLXda e'lonlarni oldinga surishda, sotuvni
+          yaxshilashga yordam beradi?"
+        />
         <Container>
           <Search />
         </Container>
+
         <div className={styles.category}>
           {isMobile ? (
             <div className={styles.mobileGrid}>
               <div className={styles.top}>
-                <h3>Bosh toifalar</h3>
+                <h3>{t("bosh_toifalar")}</h3>
                 <button onClick={() => navigate("/categorys")}>See all</button>
                 <span></span>
               </div>
@@ -82,18 +95,21 @@ function Home() {
                   />
                 ))}
               </OwlSlider>
+              <div className={styles.languageBox}>
+                <Container>
+                  <TranslationNav label="Language:" />
+                </Container>
+              </div>
             </div>
           ) : (
-            <>
-              <Container>
-                <h2>Bosh toifalar</h2>
-                <Grid minmax={"125px"} gap={"32px 10px"}>
-                  {category.map((item, index) => (
-                    <MainCategory key={`${index}-list`} data={item} />
-                  ))}
-                </Grid>
-              </Container>
-            </>
+            <Container>
+              <h2>{t("bosh_toifalar")}</h2>
+              <Grid minmax={"125px"} gap={"32px 10px"}>
+                {category.map((item, index) => (
+                  <MainCategory key={`${index}-list`} data={item} />
+                ))}
+              </Grid>
+            </Container>
           )}
         </div>
         <Container>

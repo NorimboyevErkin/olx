@@ -14,13 +14,22 @@
       &:hover {
         background: var(--green);
         color: var(--white);
+        @media (max-width: 767px) {
+          background: inherit;
+          color: inherit;
+        }
       }
     }
 
     .ant-tabs-tab-active {
-      // border-bottom: 3px solid var(--green-text);
+      @media (max-width: 767px) {
+        background: var(--green) !important;
+      }
       .ant-tabs-tab-btn {
         color: var(--green-text) !important;
+        @media (max-width: 767px) {
+          color: var(--white) !important;
+        }
       }
       &:hover {
         background: transparent;
@@ -31,6 +40,44 @@
     .ant-tabs-ink-bar {
       height: 2px !important;
       background: var(--green-text);
+    }
+  }
+}
+
+.my-primary-tabs {
+  .ant-tabs-nav-wrap {
+    display: flex;
+    border-bottom: none;
+    color: var(--green-text);
+
+    .ant-tabs-nav-list {
+      width: 100%;
+    }
+    .ant-tabs-tab {
+      min-width: 100px;
+      flex: 1;
+      justify-content: center;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-left: 0 !important;
+      white-space: nowrap;
+      background: var(--body-color);
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    .ant-tabs-tab-active {
+      background: var(--green-text);
+      color: var(--white);
+      .ant-tabs-tab-btn {
+        color: var(--white);
+      }
+    }
+
+    .ant-tabs-ink-bar {
+      display: none !important;
     }
   }
 }

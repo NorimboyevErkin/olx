@@ -4,17 +4,13 @@ import "./tabs.styles.scss";
 
 const { TabPane } = Tabs;
 
-const onChange = (key) => {
-  console.log(key);
-};
-
-const MyTabs = ({ children }) => (
-  <div className="my-tabs">
-    <Tabs defaultActiveKey="1" onChange={onChange} >
+const MyTabs = ({ type = "bordered", children ,onChange}) => (
+  <div className={type === "bordered" ? "my-tabs" : "my-primary-tabs"}>
+    <Tabs defaultActiveKey="0" onChange={onChange}>
       {children.map((item, index) => (
-        <TabPane tab={item.props.tab} key={index} >
+        <TabPane tab={item.props.tab} key={index}>
           {item}
-        </TabPane >
+        </TabPane>
       ))}
     </Tabs>
   </div>

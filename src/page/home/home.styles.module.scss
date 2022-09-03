@@ -1,10 +1,11 @@
 .home {
+  padding-bottom: 50px;
   .category {
     padding: 56px 0 61px 0;
     background: var(--white);
     margin-bottom: 32px;
     @media (max-width: 767px) {
-      padding: 0 0 20px 0;
+      padding: 0;
     }
 
     .mobileGrid {
@@ -25,8 +26,8 @@
         button {
           all: unset;
           cursor: pointer;
-          font-size: 16px;
-          font-weight: 500;
+          font-size: 15px;
+          font-weight: 400;
           color: var(--muted-green-color);
           transition: opacity 0.3s ease-in-out;
           &:hover {
@@ -40,6 +41,12 @@
           background: rgba(89, 142, 147, 0.3);
         }
       }
+      .languageBox {
+        width: 100%;
+        padding: 8px 0;
+        background: var(--body-color);
+        border-bottom: 1px solid rgba(89, 142, 147, 0.3);
+      }
     }
   }
   h2 {
@@ -49,7 +56,8 @@
     text-align: center;
     margin: 16px 0 24px !important;
     @media (max-width: 767px) {
-      font-size: 24px;
+      font-weight: 500;
+      font-size: 22px;
       text-align: start;
     }
   }

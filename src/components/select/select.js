@@ -1,21 +1,26 @@
 import { useState, useRef } from "react";
-import "./select.styles.scss";
-import { Select } from "antd";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import { Select } from "antd";
+import "./select.styles.scss";
 
-function MySelect({ placeholder, onChange, children, ...others }) {
+function MySelect({
+  field,
+  defaultValue,
+  placeholder,
+  children,
+  ...others
+}) {
   const [isOpenSelect, setisOpenSelect] = useState(false);
   const { Option } = Select;
 
   return (
-    <div className="my-select">
-      
+    <div className="my-select" {...others}>
       <Select
+        {...field}
         placeholder={placeholder}
-        onChange={onChange}
+        defaultValue={defaultValue}
         onClick={() => setisOpenSelect(!isOpenSelect)}
         allowClear
-        {...others}
       >
         {children.map((item, index) => (
           <Option value={item.props.value} key={index} className="option">

@@ -1,12 +1,10 @@
-:root {
-  --green: #002f34;
-  --green-text: #002f34;
-  --body-color: #f2f4f5;
-  --muted-color: #c6c6c6;
-  --muted-green-color: #406367;
-  --black-text-color: #002f34;
-  --white: #ffff;
-}
+@import './styles/colors';
+@import './styles/ant-styles';
+@import './styles/breakpoints.scss';
+@import './styles/colors.scss';
+@import './styles/variables.scss';
+@import './styles/mixins.scss';
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -36,43 +34,6 @@ ul {
 a {
   text-decoration: none;
   color: inherit !important;
-}
-
-.ant-popover {
-  padding: 0;
-  position: absolute;
-  width: 85% !important;
-  margin: 0 auto;
-  left: 0 !important;
-  right: 0 !important;
-
-  @media (max-width: 767px) {
-    width: 95% !important;
-  }
-}
-.ant-popover-inner-content {
-  padding: 0 !important;
-}
-.ant-popover-arrow {
-  display: none !important;
-}
-.ant-message {
-  top: 80px !important;
-  @media (max-width: 767px) {
-    top: 10px !important;
-  }
-  .ant-message-notice {
-    .ant-message-notice-content {
-      background: var(--green);
-      color: var(--white);
-      border-radius: 4px;
-      .ant-message-custom-content {
-        .anticon {
-          margin-right: 16px !important;
-        }
-      }
-    }
-  }
 }
 
 body {

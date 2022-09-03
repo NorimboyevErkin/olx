@@ -1,37 +1,74 @@
 import { useRef } from "react";
 import "./header.styles.scss";
-import { Link } from "react-router-dom";
 import Container from "../../container/container";
 import Logo from "../../logo/logo";
 import MyButton from "../../button/button";
 import MyDropdown from "../../dropdown/dropdown";
-import { HiOutlineHeart, HiOutlineUser } from "react-icons/hi";
+import { HiOutlineHeart, HiOutlineUser, HiChevronDown } from "react-icons/hi";
+import Typography from "../../typography/typography";
+import AvatarSvg from "../../../assets/svg/avatar-svg";
+import TranslationNav from "../../translation/translation";
+import { logOut, useAuth } from "../../../firebase/config";
 
-const menu = [
-  {
-    label: "3rd menu item",
-    title: true,
-  },
-  {
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="#">
-        1st menu item
-      </a>
-    ),
-  },
-  {
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="#">
-        2nd menu item
-      </a>
-    ),
-  },
+const handleLogOut = async () => {
+  try {
+    await logOut();
+  } catch (error) {
+    alert("Error !");
+  }
+};
 
-  {
-    label: "3rd menu item",
-  },
-];
 function Header() {
+  const currentUser = useAuth();
+  const menu = [
+    {
+      label: (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            columnGap: "10px",
+          }}
+        >
+          <AvatarSvg weight="36" height="36"/>
+          <Typography
+            size="13px"
+            type="title"
+            weight={700}
+            style={{ width: "100%" }}
+          >
+            {currentUser?.email ? currentUser?.email : "Kimdir"}
+          </Typography>
+        </div>
+      ),
+      title: true,
+    },
+    {
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="#">
+          Elonlar
+        </a>
+      ),
+    },
+    {
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="#">
+          Xabarlar
+        </a>
+      ),
+    },
+    {
+      label: "Favorites",
+    },
+    {
+      type: "divider",
+    },
+    {
+      label: <span onClick={() => handleLogOut()}>Chiqish</span>,
+    },
+  ];
+
   const headerRef = useRef();
   let lastScrollTop = 0;
 
@@ -55,18 +92,24 @@ function Header() {
         <nav className="navbar">
           <Logo width="71" height="41" />
           <div className="navbar-right">
+            <TranslationNav />
             <MyButton to="/favorites">
-              <HiOutlineHeart style={{ fontSize: "22px" }} />
+              <HiOutlineHeart style={{ fontSize: "24px" }} />
             </MyButton>
             <MyDropdown menu={menu}>
-              <MyButton>
+              <MyButton to="/account">
                 <HiOutlineUser
-                  style={{ fontSize: "22px", marginRight: "10px" }}
+                  style={{ fontSize: "24px", marginRight: "10px" }}
                 />
                 Hisobingiz
+                <HiChevronDown
+                  style={{ fontSize: "24px", marginLeft: "10px" }}
+                />
               </MyButton>
             </MyDropdown>
-            <MyButton type="primary">E'lon Berish</MyButton>
+            <MyButton type="primary" to="/post-new-add">
+              E'lon Berish
+            </MyButton>
           </div>
         </nav>
       </Container>

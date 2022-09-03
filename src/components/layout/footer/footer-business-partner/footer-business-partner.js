@@ -9,7 +9,9 @@ function FooterBusinessPartner() {
         <div className={styles.FooterBusinessPartnerBox}>
           <StatisticSvg />
           <strong>OLX bilan internetda biznesingizni boshlang!</strong>
-          <MyButton type="primary">Batafsil</MyButton>
+          <MyButton type="primary" style={{ width: "130px" }}>
+            Batafsil
+          </MyButton>
         </div>
       </Container>
     </div>

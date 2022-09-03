@@ -82,8 +82,8 @@ function BottomNavigation() {
           </Link>
         </li>
         <li>
-          <Link to="/profil">
-            {pathname.startsWith("/profil") ? (
+          <Link to="/account">
+            {pathname.startsWith("/account") ? (
               <HiUser style={style} />
             ) : (
               <HiOutlineUser style={style} />

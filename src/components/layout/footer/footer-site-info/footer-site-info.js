@@ -2,22 +2,10 @@ import PaperSvg from "../../../../assets/svg/paper-svg";
 import Container from "../../../container/container";
 import Logo from "../../../logo/logo";
 import styles from "./footer-site-info.styles.module.scss";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 function FooterSiteInfo() {
-  let arr = [
-    "Bolalar dunyosi",
-    "Ko'chmas mulk",
-    "Transport",
-    "Ish",
-    "Hayvonlar",
-    "Uy va bog",
-    "Elektr jihozlari",
-    "Xizmatlar",
-    "Moda va stil",
-    "Xobbi",
-    "dam olish sport",
-    "Tekinga beraman",
-    "Ayirboshlash",
-  ];
+  const category = useSelector((state) => state.category.value);
   return (
     <div className={styles.FooterInfo}>
       <div className={styles.SiteInfo}>
@@ -52,8 +40,10 @@ function FooterSiteInfo() {
             <PaperSvg />
             <div className={styles.SitePopularText}>
               <h4>OLX servisining boʻlimlari:</h4>
-              {arr.map((item, index) => (
-                <a key={index}>{item}</a>
+              {category.map((item) => (
+                <Link key={item.id} to={`/product/${item.id}`}>
+                  {item.title}
+                </Link>
               ))}
             </div>
           </div>

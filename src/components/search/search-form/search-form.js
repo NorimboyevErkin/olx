@@ -24,11 +24,11 @@ function SearchForm() {
           content={<LocationList data={regions} />}
           trigger="click"
         >
-          <div className={styles.select}>
+          <div className={styles.country}>
             <span>
               <HiOutlineLocationMarker />
             </span>
-            <p>Location</p>
+            <input type="text" disabled="disabled" value="Location" />
           </div>
         </Popover>
         <button

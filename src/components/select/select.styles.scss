@@ -1,9 +1,11 @@
 .my-select {
   position: relative;
+  background: #fff;
   .ant-select {
+    background: transparent !important;
     padding-right: 18px;
-    background: #fff;
     margin-right: 0;
+    width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -13,17 +15,13 @@
     line-height: 48px;
     font-size: 16px;
     color: var(--green) !important;
-    @media (max-width: 767px) {
-      height: 36px;
-      line-height: 36px;
-    }
 
     .ant-select-selector {
+      background: transparent !important;
       border: none !important;
       box-shadow: none !important;
 
       .ant-select-selection-placeholder {
-        padding: 0 14px;
         color: var(--green) !important;
       }
     }
@@ -50,15 +48,13 @@
 }
 .option {
   all: unset;
-  padding: 8px 14px !important;
+  padding: 4px 14px !important;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  @media (max-width: 767px) {
-    padding: 4px 8px !important;
-  }
 }
 .ant-select-item {
+  border-bottom: 1px solid #fff;
   &:hover {
     background: var(--green) !important;
     color: #ffff !important;

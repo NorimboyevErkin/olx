@@ -8,6 +8,11 @@ function CategoryId() {
   const category = useSelector((state) => state.category.value);
   const dispatch = useDispatch();
   let { categoryId } = useParams();
+    useEffect(() => {
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
   return (
     <div className={styles.CategoryId}>
       <CategoryList data={category[--categoryId]} />

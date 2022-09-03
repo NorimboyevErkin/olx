@@ -1,38 +1,33 @@
-import Typography from "../typography/typography";
 import styles from "./main-category-mobile.styles.module.scss";
-import { Popover } from "antd";
 import { HiChevronRight } from "react-icons/hi";
-import CategoryList from "../category-list/category-list";
 import { useNavigate } from "react-router-dom";
-function MainCategoryMobile({ data, ...others }) {
+function MainCategoryMobile({ data, onClick = null, ...others }) {
   const navigate = useNavigate();
   const { id, img, title, category, color } = data;
   return (
-    <Popover
-      placement="bottom"
-      content={<CategoryList data={data} />}
-      trigger="click"
+    <div
+      className={styles.box}
+      style={{ background: color }}
+      onClick={onClick ? onClick : () => navigate(`./${id}`)}
     >
-      <div
-        className={styles.box}
-        style={{ background: color }}
-        onClick={() => navigate(`./${id}`)}
-      >
-        <div className={styles.opacity}></div>
-        <div className={styles.grid}>
-          <img
-            src={img}
-            alt={title}
-            className={styles.img}
-            style={{ background: color }}
-          />
-          <div className={styles.title}>
+      <div className={styles.opacity}></div>
+      <div className={styles.grid}>
+        <div className={styles.img}>
+          <img src={img} alt={id} style={{ background: color }} />
+        </div>
+        <div className={styles.title}>
+          <span className={styles.text}>
             <h3>{title}</h3>
-            <HiChevronRight style={{ fontSize: "20px" }} />
-          </div>
+            <p>{category.length} toifa</p>
+          </span>
+          {category.length > 0 ? (
+            <span className={styles.icon}>
+              <HiChevronRight />
+            </span>
+          ) : null}
         </div>
       </div>
-    </Popover>
+    </div>
   );
 }
 
