@@ -25,6 +25,7 @@ function Advertising() {
       .then((res) => res.json())
       .then((data) => setData(data));
   };
+  
   useEffect(() => {
     getdata("products", setdataProduct);
     return () => {

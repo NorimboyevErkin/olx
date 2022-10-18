@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Loader from "./components/loader/loader";
@@ -57,26 +57,31 @@ function App() {
         >
           <Translation>
             <Layout>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="favorites" element={<Favorites />} />
-                <Route path="account" element={<Account />} />
-                <Route path="register" element={<Register />} />
-                <Route path="categorys" element={<Category />} />
-                <Route path="post-new-add" element={<PostNewAdd />} />
-                <Route path="categorys/:categoryId" element={<CategoryId />} />
+              <Suspense fallback={<Loader />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="favorites" element={<Favorites />} />
+                  <Route path="account" element={<Account />} />
+                  <Route path="register" element={<Register />} />
+                  <Route path="categorys" element={<Category />} />
+                  <Route path="post-new-add" element={<PostNewAdd />} />
+                  <Route
+                    path="categorys/:categoryId"
+                    element={<CategoryId />}
+                  />
 
-                <Route path="product/:mainCategoryId" element={<Product />} />
-                <Route
-                  path="product/:mainCategoryId/:categoryId"
-                  element={<Product />}
-                />
-                <Route
-                  path="advertising/:advertisingName"
-                  element={<Advertising />}
-                />
-                <Route path="*" element={<NotAway />} />
-              </Routes>
+                  <Route path="product/:mainCategoryId" element={<Product />} />
+                  <Route
+                    path="product/:mainCategoryId/:categoryId"
+                    element={<Product />}
+                  />
+                  <Route
+                    path="advertising/:advertisingName"
+                    element={<Advertising />}
+                  />
+                  <Route path="*" element={<NotAway />} />
+                </Routes>
+              </Suspense>
             </Layout>
           </Translation>
         </CurrentAccount.Provider>

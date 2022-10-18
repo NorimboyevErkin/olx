@@ -1,4 +1,4 @@
-import { Radio } from "antd";
+import { Radio} from "antd";
 import styles from "./radio.styles.module.scss";
 
 function MyRadio({ field, defaultValue, children, alert }) {

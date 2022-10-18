@@ -1,7 +1,6 @@
 import styles from "./translation.styles.module.scss";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import Typography from "../typography/typography";
 
 function TranslationNav({ label = null }) {
   const { t, i18n } = useTranslation();

@@ -76,8 +76,7 @@ function Product() {
                   <div className={styles.sortByPrice}>
                     <p>Narx</p>
                     <div className={styles.price}>
-                      {/* <input type="text" placeholder="dan" /> */}
-                      <MyInput type="text" placeholder="dan" />
+                      <input type="text" placeholder="dan" />
                       <input type="text" placeholder="gacha" />
                     </div>
                   </div>

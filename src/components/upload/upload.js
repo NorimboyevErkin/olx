@@ -34,6 +34,7 @@ function MyUpload({ type = "title", setFileList = null, FileList = null }) {
             : { background: "rgb(242, 244, 245)" }
         }
       >
+
         {type === "title" ? (
           <h3>Rasmlarni qo'shish</h3>
         ) : (

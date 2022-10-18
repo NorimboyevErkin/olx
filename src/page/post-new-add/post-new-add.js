@@ -15,7 +15,7 @@ import styles from "./post-new-add.styles.module.scss";
 import Grid from "../../components/grid/grid";
 import { useMediaQuery } from "react-responsive";
 import CategoryModal from "../../components/category-modal/category-modal";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { productYup } from "../../utils/yup/yup";
@@ -49,7 +49,7 @@ function PostNewAdd() {
   const isMobile = useMediaQuery({
     query: "(max-width: 767px)",
   });
-  
+
   const {
     register,
     handleSubmit,
@@ -114,9 +114,7 @@ function PostNewAdd() {
   }, [imgUrl]);
 
   useEffect(() => {
-    if (!curAccount) {
-      navigate("/register");
-    } else {
+    if (curAccount) {
       setValue("who", curAccount?.email);
     }
   }, []);
@@ -130,240 +128,249 @@ function PostNewAdd() {
   console.log(progresspercent, data, "data");
 
   return (
-    <div className={styles.postBox}>
-      <form onSubmit={handleSubmit(submitFunc)}>
-        <Container>
-          <h2>E'lon joylashtirish</h2>
+    <>
+      {curAccount ? (
+        <div className={styles.postBox}>
+          <form onSubmit={handleSubmit(submitFunc)}>
+            <Container>
+              <h2>E'lon joylashtirish</h2>
 
-          <CardBox
-            onClick={() => {
-              if (!currentUser) {
-                navigate("/register");
-              }
-            }}
-          >
-            <div className={styles.productInfo}>
-              <Typography type="title" size="20px">
-                Bizga e'loningiz haqida gapirib bering
-              </Typography>
-              <MyInput
-                register={register("title")}
-                alert={errors.title?.message}
-                placeholder="Masalan , Iphone 11 pro"
-                type="text"
-                label="Sarlavhani kiriting*"
-              />
-              <CategoryModal
-                onClickMainCategory={(list) => {
-                  setValue("categoryId", list.id);
-                  setselectedMainCategory(list.title);
-                }}
-                onClickCategory={(list) => {
-                  setValue("mainCategoryId", list.id);
-                  setcategory(list.title);
+              <CardBox
+                onClick={() => {
+                  if (!currentUser) {
+                    navigate("/register");
+                  }
                 }}
               >
-                {console.log(
-                  errors.categoryId?.message,
-                  errors.mainCategoryId?.message,
-                  "errors.categoryId?.message || errors.mainCategoryId?.message"
-                )}
-                <MyInput
-                  register={register("categoryId")}
-                  alert={
-                    errors.categoryId?.message || errors.mainCategoryId?.message
-                  }
-                  placeholder="Bo'limni tanlang"
-                  type="text"
-                  label="Rukn*"
-                  value={`${selectedMainCategory} / ${category}`}
-                  disabled="disabled"
-                />
-              </CategoryModal>
-            </div>
-          </CardBox>
-
-          <CardBox>
-            <div className={styles.productInfo}>
-              <Typography type="title" size="20px">
-                Rasmlar
-              </Typography>
-              <p>
-                Birinchi surat e’loningiz asosiy rasmi bo’ladi. Suratlar
-                tartibini ularning ustiga bosib va olib o’tish bilan
-                o’zgartirishingiz mumkin.
-              </p>
-              <Grid minmax={isMobile ? "130px" : "159px"} gap="16px">
-                {navUpload.map((item, index) => (
-                  <MyUpload
-                    type={item.type}
-                    key={index}
-                    fileList={fileList}
-                    setFileList={setFileList}
+                <div className={styles.productInfo}>
+                  <Typography type="title" size="20px">
+                    Bizga e'loningiz haqida gapirib bering
+                  </Typography>
+                  <MyInput
+                    register={register("title")}
+                    alert={errors.title?.message}
+                    placeholder="Masalan , Iphone 11 pro"
+                    type="text"
+                    label="Sarlavhani kiriting*"
                   />
-                ))}
-              </Grid>
-            </div>
-          </CardBox>
-
-          <CardBox>
-            <div className={styles.productInfo}>
-              <Typography type="title" size="20px">
-                Bizga e’loningizni tavsiflab bering
-              </Typography>
-              <MyInput
-                register={register("description")}
-                alert={errors.description?.message}
-                placeholder="O’zingizni shu e'lonni ko’rayotgan odam o’rniga qo’ying va tavsif yozing"
-                type="textarea"
-                label="Sarlavhani kiriting*"
-              />
-              <p>Yana kamida 80 ta belgi yozing</p>
-            </div>
-          </CardBox>
-
-          <CardBox>
-            <div className={styles.productPrice}>
-              <MyTabs
-                type="primary"
-                onChange={(key) => {
-                  if (key !== "0") {
-                    setValue("price", "null");
-                  }
-                }}
-              >
-                <div tab="Narx">
-                  <div className={styles.flexStart}>
+                  <CategoryModal
+                    onClickMainCategory={(list) => {
+                      setValue("categoryId", list.id);
+                      setselectedMainCategory(list.title);
+                    }}
+                    onClickCategory={(list) => {
+                      setValue("mainCategoryId", list.id);
+                      setcategory(list.title);
+                    }}
+                  >
+                    {console.log(
+                      errors.categoryId?.message,
+                      errors.mainCategoryId?.message,
+                      "errors.categoryId?.message || errors.mainCategoryId?.message"
+                    )}
                     <MyInput
-                      register={register("price")}
-                      placeholder="100 000"
+                      register={register("categoryId")}
+                      alert={
+                        errors.categoryId?.message ||
+                        errors.mainCategoryId?.message
+                      }
+                      placeholder="Bo'limni tanlang"
                       type="text"
-                      label="Narx*"
+                      label="Rukn*"
+                      value={`${selectedMainCategory} / ${category}`}
+                      disabled="disabled"
                     />
-                    <Controller
-                      name="valute"
-                      control={control}
-                      defaultValue="so'm"
-                      render={({ field }) => (
-                        <MySelect
-                          field={field}
+                  </CategoryModal>
+                </div>
+              </CardBox>
+
+              <CardBox>
+                <div className={styles.productInfo}>
+                  <Typography type="title" size="20px">
+                    Rasmlar
+                  </Typography>
+                  <p>
+                    Birinchi surat e’loningiz asosiy rasmi bo’ladi. Suratlar
+                    tartibini ularning ustiga bosib va olib o’tish bilan
+                    o’zgartirishingiz mumkin.
+                  </p>
+                  <Grid minmax={isMobile ? "130px" : "159px"} gap="16px">
+                    {navUpload.map((item, index) => (
+                      <MyUpload
+                        type={item.type}
+                        key={index}
+                        fileList={fileList}
+                        setFileList={setFileList}
+                      />
+                    ))}
+                  </Grid>
+                </div>
+              </CardBox>
+
+              <CardBox>
+                <div className={styles.productInfo}>
+                  <Typography type="title" size="20px">
+                    Bizga e’loningizni tavsiflab bering
+                  </Typography>
+                  <MyInput
+                    register={register("description")}
+                    alert={errors.description?.message}
+                    placeholder="O’zingizni shu e'lonni ko’rayotgan odam o’rniga qo’ying va tavsif yozing"
+                    type="textarea"
+                    label="Sarlavhani kiriting*"
+                  />
+                  <p>Yana kamida 80 ta belgi yozing</p>
+                </div>
+              </CardBox>
+
+              <CardBox>
+                <div className={styles.productPrice}>
+                  <MyTabs
+                    type="primary"
+                    onChange={(key) => {
+                      if (key !== "0") {
+                        setValue("price", "null");
+                      }
+                    }}
+                  >
+                    <div tab="Narx">
+                      <div className={styles.flexStart}>
+                        <MyInput
+                          register={register("price")}
+                          placeholder="100 000"
+                          type="text"
+                          label="Narx*"
+                        />
+                        <Controller
                           name="valute"
                           control={control}
                           defaultValue="so'm"
-                          style={{
-                            background: "var(--body-color)",
-                          }}
-                        >
-                          <div value="so'm" style={{ minWidth: "40px" }}>
-                            so'm
-                          </div>
-                          <div value="y.e" style={{ minWidth: "40px" }}>
-                            y.e
-                          </div>
-                        </MySelect>
+                          render={({ field }) => (
+                            <MySelect
+                              field={field}
+                              name="valute"
+                              control={control}
+                              defaultValue="so'm"
+                              style={{
+                                background: "var(--body-color)",
+                              }}
+                            >
+                              <div value="so'm" style={{ maxWidth: "40px" }}>
+                                so'm
+                              </div>
+                              <div value="y.e" style={{ maxWidth: "40px" }}>
+                                y.e
+                              </div>
+                            </MySelect>
+                          )}
+                        />
+                      </div>
+                      <p style={{ color: "rgb(255, 86, 54)" }}>
+                        {errors.price?.message}
+                      </p>
+                      <br />
+                      <label className={styles.flexBetween}>
+                        <span>Kelishuv asosida</span>
+                        <Controller
+                          name="byAgreement"
+                          control={control}
+                          defaultValue={true}
+                          render={({ field: { value, ...others } }) => (
+                            <MySwitch field={others} value={value} />
+                          )}
+                        />
+                      </label>
+                    </div>
+                    <div tab="Bepul"></div>
+                    <div tab="Ayriboshlash"></div>
+                  </MyTabs>
+
+                  <Typography type="title" size="20px">
+                    Qo'shimcha ma'lumot
+                  </Typography>
+                  <label>
+                    <span>Xususiy yoki biznes*</span>
+                    <Controller
+                      name="personalBusiness"
+                      control={control}
+                      alert={errors.personalBusiness?.message}
+                      defaultValue="js"
+                      render={({ field }) => (
+                        <MyRadio field={field}>
+                          <span radio="js">Jismoniy shaxs</span>
+                          <span radio="b">Biznes</span>
+                        </MyRadio>
                       )}
                     />
-                  </div>
-                  <p style={{ color: "rgb(255, 86, 54)" }}>
-                    {errors.price?.message}
-                  </p>
-                  <br />
-                  <label className={styles.flexBetween}>
-                    <span>Kelishuv asosida</span>
+                  </label>
+                  <label>
+                    <span>Holati*</span>
                     <Controller
-                      name="byAgreement"
+                      name="status"
                       control={control}
-                      defaultValue={true}
-                      render={({ field: { value, ...others } }) => (
-                        <MySwitch field={others} value={value} />
+                      alert={errors.status?.message}
+                      defaultValue="yangi"
+                      render={({ field }) => (
+                        <MyRadio field={field}>
+                          <span radio="yangi">Yangi</span>
+                          <span radio="f/b">F/B</span>
+                        </MyRadio>
                       )}
                     />
                   </label>
                 </div>
-                <div tab="Bepul"></div>
-                <div tab="Ayriboshlash"></div>
-              </MyTabs>
+              </CardBox>
 
-              <Typography type="title" size="20px">
-                Qo'shimcha ma'lumot
-              </Typography>
-              <label>
-                <span>Xususiy yoki biznes*</span>
-                <Controller
-                  name="personalBusiness"
-                  control={control}
-                  alert={errors.personalBusiness?.message}
-                  defaultValue="js"
-                  render={({ field }) => (
-                    <MyRadio field={field}>
-                      <span radio="js">Jismoniy shaxs</span>
-                      <span radio="b">Biznes</span>
-                    </MyRadio>
-                  )}
-                />
-              </label>
-              <label>
-                <span>Holati*</span>
-                <Controller
-                  name="status"
-                  control={control}
-                  alert={errors.status?.message}
-                  defaultValue="yangi"
-                  render={({ field }) => (
-                    <MyRadio field={field}>
-                      <span radio="yangi">Yangi</span>
-                      <span radio="f/b">F/B</span>
-                    </MyRadio>
-                  )}
-                />
-              </label>
-            </div>
-          </CardBox>
+              <CardBox>
+                <div className={styles.productInfo}>
+                  <Typography type="title" size="20px">
+                    Aloqa uchun ma'lumotlar
+                  </Typography>
+                  <MyInput
+                    register={register("location")}
+                    alert={errors.location?.message}
+                    placeholder="Gazalkent"
+                    type="text"
+                    label="Joylashuv*"
+                  />
+                  <MyInput
+                    register={register("email")}
+                    alert={errors.email?.message}
+                    placeholder="email"
+                    type="email"
+                    label="Email-манзил"
+                  />
+                  <MyInput
+                    register={register("phone")}
+                    alert={errors.phone?.message}
+                    placeholder="phone"
+                    type="text"
+                    label="Telefon raqami"
+                  />
+                </div>
+              </CardBox>
 
-          <CardBox>
-            <div className={styles.productInfo}>
-              <Typography type="title" size="20px">
-                Aloqa uchun ma'lumotlar
-              </Typography>
-              <MyInput
-                register={register("location")}
-                alert={errors.location?.message}
-                placeholder="Gazalkent"
-                type="text"
-                label="Joylashuv*"
-              />
-              <MyInput
-                register={register("email")}
-                alert={errors.email?.message}
-                placeholder="email"
-                type="email"
-                label="Email-манзил"
-              />
-              <MyInput
-                register={register("phone")}
-                alert={errors.phone?.message}
-                placeholder="phone"
-                type="text"
-                label="Telefon raqami"
-              />
-            </div>
-          </CardBox>
-
-          <CardBox>
-            <div className={styles.productSubmit}>
-              <MyButton type="primary-outline">E'lon Joylashtirish</MyButton>
-            </div>
-          </CardBox>
-        </Container>
-      </form>
-      {/* <button
+              <CardBox>
+                <div className={styles.productSubmit}>
+                  <MyButton type="primary-outline">
+                    E'lon Joylashtirish
+                  </MyButton>
+                </div>
+              </CardBox>
+            </Container>
+          </form>
+          {/* <button
         onClick={() => {
           mutationDelete.mutate("2022-09-02T13:35:20.701Z");
         }}
       >
         delete
       </button> */}
-    </div>
+        </div>
+      ) : (
+        <Navigate to="/register" replace />
+      )}
+    </>
   );
 }
 
